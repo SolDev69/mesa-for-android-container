@@ -640,9 +640,9 @@ jobs:
           retention-days: 90
 
   archlinux:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-24.04
     container:
-      image: lfdevs/archlinuxarm:base-devel
+      image: archlinux/archlinux:base-devel
       options: --privileged --user root
 
     steps:
@@ -694,10 +694,10 @@ jobs:
       - name: Set release name suffix
         shell: bash
         run: |
-          cd /home/runner/archlinuxarm-PKGBUILDs/extra/mesa
+          cd /home/runner/archlinux-PKGBUILDs/extra/mesa
           version=$(awk -F= '/^pkgver=/{print $2; exit}' PKGBUILD)
           build_date=$(TZ=Asia/Shanghai date +%Y%m%d)
-          echo "MESA_RELEASE_NAME_SUFFIX=${version}-devel-${build_date}_archlinux_arm64" >> "$GITHUB_ENV"
+          echo "MESA_RELEASE_NAME_SUFFIX=${version}-devel-${build_date}_archlinux" >> "$GITHUB_ENV"
 
       - name: Build Mesa
         shell: bash
