@@ -705,7 +705,7 @@ jobs:
           sudo -u runner bash -c '
             export CCACHE_DIR=/home/runner/.ccache
             echo "Building Mesa..."
-            cd /home/runner/archlinuxarm-PKGBUILDs/extra/mesa
+            cd /home/runner/archlinux-PKGBUILDs/extra/mesa
             makepkg -s --noconfirm
             echo "Mesa build completed successfully!"
           '
@@ -721,7 +721,7 @@ jobs:
         shell: bash
         run: |
           echo "Packaging Mesa..."
-          cd /home/runner/archlinuxarm-PKGBUILDs/extra/mesa
+          cd /home/runner/archlinux-PKGBUILDs/extra/mesa
           tar -cvf mesa-for-android-container_${MESA_RELEASE_NAME_SUFFIX}.tar *.pkg.tar.xz
           echo "Calculating sha256 checksums..."
           find . -maxdepth 1 \( -name "*.tar" \) -type f -printf "%P\0" | xargs -0 sha256sum | sort -k2 > sha256sums.txt
@@ -733,8 +733,8 @@ jobs:
         with:
           name: mesa-for-android-container_${{ env.MESA_RELEASE_NAME_SUFFIX }}
           path: |
-            /home/runner/archlinuxarm-PKGBUILDs/extra/mesa/*.tar
-            /home/runner/archlinuxarm-PKGBUILDs/extra/mesa/sha256sums.txt
+            /home/runner/archlinux-PKGBUILDs/extra/mesa/*.tar
+            /home/runner/archlinux-PKGBUILDs/extra/mesa/sha256sums.txt
           retention-days: 90
 
   void-linux:
