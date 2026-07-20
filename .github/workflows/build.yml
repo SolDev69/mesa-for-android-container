@@ -685,9 +685,9 @@ jobs:
             git config --global user.email "actions@github.com"
             git config --global user.name "GitHub Actions"
             if [ "${{ github.event.inputs.tag }}" == "dev/adreno-main" ] || [ "${{ github.event.inputs.tag }}" == "adreno-main" ]; then
-              git clone -b freedreno --depth 1 https://github.com/lfdevs/archlinuxarm-PKGBUILDs.git /home/runner/archlinux-PKGBUILDs
+              git clone -b freedreno --depth 1 https://github.com/SolDev69/archlinuxarm-PKGBUILDs.git /home/runner/archlinux-PKGBUILDs
             else
-              git clone -b ${{ github.event.inputs.tag }} --depth 1 https://github.com/lfdevs/archlinuxarm-PKGBUILDs.git
+              git clone -b ${{ github.event.inputs.tag }} --depth 1 https://github.com/SolDev69/archlinuxarm-PKGBUILDs.git /home/runner/archlinux-PKGBUILDs
             fi
           '
 
